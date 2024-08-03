@@ -12,7 +12,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject fist;
     [SerializeField] private int maxHealth = 4;
     [SerializeField] private float moveSpeed = 5;
+    [SerializeField] private float attackDelay = 0.5f;
     private int curHealth;
+    
     private PlayerState playerstate;
 
     // Start is called before the first frame update
@@ -38,7 +40,7 @@ public class PlayerScript : MonoBehaviour
             if(Input.GetKey(KeyCode.D)) {
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
-            if(Input.GetMouseButton(0)) {
+            if(Input.GetMouseButton(0) && !fist.activeSelf) {
                 StartCoroutine(Attack());
             }
             if(curHealth <= 0) {
@@ -50,7 +52,7 @@ public class PlayerScript : MonoBehaviour
     
     private IEnumerator Attack(){
         fist.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(attackDelay);
         fist.SetActive(false);
     }
     private void OnCollisionEnter2D(Collision2D collision){
