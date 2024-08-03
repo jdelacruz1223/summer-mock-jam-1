@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
             if(Input.GetKey(KeyCode.D)) {
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
-            if(Input.GetMouseButton(0) && !fist.activeSelf) {
+            if(Input.GetMouseButtonDown(0) && !fist.activeSelf) {
                 StartCoroutine(Attack());
             }
             if(curHealth <= 0) {
@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour
     }
     
     private IEnumerator Attack(){
+        Debug.Log("Attacking");
         fist.SetActive(true);
         yield return new WaitForSeconds(attackDelay);
         fist.SetActive(false);
