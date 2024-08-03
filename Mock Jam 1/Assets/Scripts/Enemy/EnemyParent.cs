@@ -10,8 +10,8 @@ public class EnemyParent : MonoBehaviour
         health = 2;
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.CompareTag("PlayerAttack")) {
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("PlayerAttack")) {
             health--;
             Debug.Log("Enemy hit!");
             if (health <= 0) {

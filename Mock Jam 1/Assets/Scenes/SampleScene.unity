@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &92170134
 Grid:
   m_ObjectHideFlags: 0
@@ -1975,12 +1975,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5311530670344288694, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7000631446762198650, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2127759056}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
 --- !u!1 &988234254
 GameObject:
@@ -2306,6 +2304,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4574564862969886267, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
   m_PrefabInstance: {fileID: 2021929986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1515703875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 37585339616185588, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+  m_PrefabInstance: {fileID: 2021929986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1515703878
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515703875}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1709282103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2589,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37585339616185588, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4574564862969886267, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11
@@ -2600,25 +2652,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 37585339616185588, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1515703878}
   m_SourcePrefab: {fileID: 100100000, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
 --- !u!1 &2127759051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7000631446762198650, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
   m_PrefabInstance: {fileID: 954013593}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2127759056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127759051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52e251547506a54eb38f025be7c2e91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2628,10 +2671,10 @@ SceneRoots:
   - {fileID: 131423816}
   - {fileID: 632517568}
   - {fileID: 954013593}
-  - {fileID: 1027673789}
-  - {fileID: 765370963}
   - {fileID: 2021929986}
+  - {fileID: 1027673789}
   - {fileID: 92170135}
   - {fileID: 988234256}
   - {fileID: 783590174}
   - {fileID: 869245002}
+  - {fileID: 765370963}
