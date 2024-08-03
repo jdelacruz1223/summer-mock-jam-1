@@ -19,10 +19,4 @@ public class SwordScript : MonoBehaviour
         PointerPos = cam.ScreenToWorldPoint(Input.mousePosition);
         transform.right = (PointerPos - (Vector2)transform.position).normalized;
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("Enemy")) {
-            //Enemy will get hurt upon collision with the sword
-        }
-    }
 }
