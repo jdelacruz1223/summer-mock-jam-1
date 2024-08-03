@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class SwordScript : MonoBehaviour
 {
-    [SerializeField] private float swordOffset = 10;
+    public Vector2 PointerPos { get; set; }
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        transform.LookAt(Input.mousePosition);
-        transform.position += transform.forward * swordOffset;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt(Input.mousePosition);
+        PointerPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.right = (PointerPos - (Vector2)transform.position).normalized;
     }
     
     private void OnCollisionEnter2D(Collision2D collision){

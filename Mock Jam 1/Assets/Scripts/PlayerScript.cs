@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     private enum PlayerState {
         alive, dead
     }
-    [SerializeField] private GameObject sword;
+    public GameObject fist;
     [SerializeField] private int maxHealth = 4;
     [SerializeField] private float moveSpeed = 5;
     private int curHealth;
@@ -20,7 +20,6 @@ public class PlayerScript : MonoBehaviour
     {
         playerstate = PlayerState.alive;
         curHealth = maxHealth;
-        sword.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,9 +49,9 @@ public class PlayerScript : MonoBehaviour
     }
     
     private IEnumerator Attack(){
-        sword.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        sword.SetActive(false);
+        fist.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        fist.SetActive(false);
     }
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Enemy")) {
