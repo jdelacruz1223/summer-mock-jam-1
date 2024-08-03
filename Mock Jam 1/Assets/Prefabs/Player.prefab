@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882b4875c95fa2546bd9b84f3e756ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fist: {fileID: 0}
+  fist: {fileID: 37585339616185588}
   maxHealth: 4
   moveSpeed: 5
   attackDelay: 0.5
