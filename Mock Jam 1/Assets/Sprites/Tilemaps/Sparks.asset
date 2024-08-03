@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: SideWall
+  m_Name: Sparks
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -385583642, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -1220297060, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -20128016, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -942250867, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  m_MinSpeed: 10
-  m_MaxSpeed: 10
+  - {fileID: -1796449212, guid: 0d4f54f2e2ebb96488c95da5f22bdabe, type: 3}
+  - {fileID: 985536165, guid: 0d4f54f2e2ebb96488c95da5f22bdabe, type: 3}
+  - {fileID: 521778997, guid: 0d4f54f2e2ebb96488c95da5f22bdabe, type: 3}
+  - {fileID: -382658428, guid: 0d4f54f2e2ebb96488c95da5f22bdabe, type: 3}
+  - {fileID: 481560738, guid: 0d4f54f2e2ebb96488c95da5f22bdabe, type: 3}
+  m_MinSpeed: 16
+  m_MaxSpeed: 16
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

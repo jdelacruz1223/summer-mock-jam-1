@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: SideWall
+  m_Name: Gear
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -385583642, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -1220297060, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -20128016, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
-  - {fileID: -942250867, guid: f304408b2ec02d44dab885660aa28e7d, type: 3}
+  - {fileID: 1816822535, guid: 7a0b9039859a3a042b1019f08e6a0b01, type: 3}
+  - {fileID: 1611615342, guid: 7a0b9039859a3a042b1019f08e6a0b01, type: 3}
+  - {fileID: 2122454090, guid: 7a0b9039859a3a042b1019f08e6a0b01, type: 3}
+  - {fileID: -469319705, guid: 7a0b9039859a3a042b1019f08e6a0b01, type: 3}
   m_MinSpeed: 10
   m_MaxSpeed: 10
   m_AnimationStartTime: 0
