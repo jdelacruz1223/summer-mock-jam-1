@@ -184,6 +184,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 235050442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &114559274 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5942505885161835386, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+  m_PrefabInstance: {fileID: 233952276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &131423814
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +278,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1075841733327155276, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.46
+      objectReference: {fileID: 0}
     - target: {fileID: 1230917017357878331, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -284,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 2990086025951735135, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: circleOrigin
       value: 
-      objectReference: {fileID: 1292921523}
+      objectReference: {fileID: 114559274}
     - target: {fileID: 4574564862969886267, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
