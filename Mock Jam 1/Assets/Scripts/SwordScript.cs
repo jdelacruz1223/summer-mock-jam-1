@@ -64,10 +64,20 @@ public class SwordScript : MonoBehaviour
     IEnumerator ApplyKnockback(GameObject target, Vector2 targetPosition, float duration)
     {
         yield return new WaitForSeconds(duration);
-        Rigidbody2D enemyRigidbody = target.GetComponent<Rigidbody2D>();
-        if (enemyRigidbody != null)
+        
+        try
         {
-            enemyRigidbody.velocity = Vector2.zero; // Stop the enemy after knockback
+            Rigidbody2D enemyRigidbody = target.GetComponent<Rigidbody2D>();
+            if (enemyRigidbody != null)
+            {
+                enemyRigidbody.velocity = Vector2.zero; // Stop the enemy after knockback
+            } 
+        } 
+        catch (MissingReferenceException e)
+        {
+            Debug.Log("");
         }
+        
+        
     }
 }

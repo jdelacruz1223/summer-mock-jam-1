@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -80,8 +81,7 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Attack());
             break;
             case PlayerState.dead:
-            gameActive = false;
-            //game over scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             break;
         }
             

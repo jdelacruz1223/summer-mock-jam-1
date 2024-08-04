@@ -268,6 +268,8 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   canMove: 0
+  invincibleLayer: 0
+  defaultLayer: 0
   currentState: 0
 --- !u!114 &1470381056164591925
 MonoBehaviour:
@@ -378,5 +380,5 @@ MonoBehaviour:
   circleOrigin: {fileID: 5942505885161835386}
   radius: 0.8
   fist: {fileID: 37585339616185588}
-  knockbackForce: 1
+  knockbackForce: 6
   knockbackDuration: 0.5
