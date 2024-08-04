@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5942505885161835386}
   m_Father: {fileID: 5798957615541035973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1230917017357878331
@@ -119,7 +120,7 @@ GameObject:
   - component: {fileID: 2592710428932352495}
   - component: {fileID: 7279263565441650762}
   - component: {fileID: 5208690908577739920}
-  - component: {fileID: -7884844502179281322}
+  - component: {fileID: 1470381056164591925}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -267,33 +268,92 @@ MonoBehaviour:
   maxHealth: 5
   moveSpeed: 5
   attackDelay: 0.5
---- !u!50 &-7884844502179281322
-Rigidbody2D:
-  serializedVersion: 4
+  collisionOffset: 0
+  iFrameDuration: 1.5
+  isInvulnerable: 0
+  curHealth: 0
+  rb: {fileID: 0}
+  gameActive: 0
+  moveInput: {x: 0, y: 0}
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  canMove: 0
+  invincibleLayer: 0
+  defaultLayer: 0
+  currentState: 0
+--- !u!114 &1470381056164591925
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5650270691429419313}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c346899a42f808441a50d7b28e3ae561, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!1 &6195295641461663582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5942505885161835386}
+  m_Layer: 0
+  m_Name: CircleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5942505885161835386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195295641461663582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075841733327155276}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8155913887984046820
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982982878ef563f4b916a49e2c845628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleOrigin: {fileID: 0}
-  radius: 0
-  fist: {fileID: 0}
+  circleOrigin: {fileID: 5942505885161835386}
+  radius: 0.8
+  fist: {fileID: 37585339616185588}
+  knockbackForce: 6
+  knockbackDuration: 0.5

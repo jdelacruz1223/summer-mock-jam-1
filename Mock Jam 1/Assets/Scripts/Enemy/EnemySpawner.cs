@@ -39,7 +39,15 @@ public class EnemySpawner : MonoBehaviour
         {
             currentSpawnpointIndex = 0;
         }
-
+        int i = 0;
+        while (i < activeEnemies.Count) {
+            GameObject enemy = activeEnemies[i];
+            if (enemy == null) {
+                activeEnemies.Remove(enemy);
+            } else {
+                i++;
+            }
+        }
         GameObject NewEnemy = Instantiate
         (
             basicEnemyPrefab,
@@ -62,5 +70,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else return false;
     }
-
+    public void setSpawnDelay(int delay) {
+        spawnDelay = delay;
+    }
 }
