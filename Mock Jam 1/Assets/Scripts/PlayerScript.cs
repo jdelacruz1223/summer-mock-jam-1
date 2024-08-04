@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
 {
     private enum PlayerState {
         alive,
+        standing,
         attacking,
         moving,
         dead
@@ -34,7 +35,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentState = PlayerState.alive;
+        currentState = PlayerState.standing;
         curHealth = maxHealth;
         isInvulnerable = false;
         canMove = true;
@@ -53,8 +54,8 @@ public class PlayerScript : MonoBehaviour
     {
         switch (currentState)
         {
-            case PlayerState.alive:
-            gameActive = true;
+            case PlayerState.standing:
+            //
             break;
             case PlayerState.moving:
             //
@@ -132,7 +133,7 @@ public class PlayerScript : MonoBehaviour
         fist.SetActive(true);
         yield return new WaitForSeconds(attackDelay);
         fist.SetActive(false);
-        currentState = PlayerState.alive;
+        currentState = PlayerState.standing;
     }
     private IEnumerator Iframes(){
         isInvulnerable = true;
