@@ -16,7 +16,8 @@ public class EnemyParent : MonoBehaviour
     [SerializeField] public int speed;
     [SerializeField] public GameObject player;
     public Rigidbody2D rb;
-
+    [SerializeField] public float attackRange = 0.5f;
+    [SerializeField] public int attackRecoveryDelay = 1; 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
 
@@ -34,11 +35,30 @@ public class EnemyParent : MonoBehaviour
             Destroy(gameObject);
         }
 
-        ChasePlayer();
-        //HandleState();
+
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distance <= attackRange)
+        {
+            currentState = MovementState.Attacking;
+            
+        }
+        else
+        {
+            currentState = MovementState.Chasing;
+        }
+        HandleState();
     }
     public void Damage() {
         health--;
+    }
+
+    private void DebugRay()
+    {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        Ray ray = new Ray(transform.position, direction);
+
+        Debug.DrawRay(ray.origin, ray.direction * attackRange, Color.red);
     }
 
     private void HandleState()
@@ -46,10 +66,10 @@ public class EnemyParent : MonoBehaviour
         switch(currentState)
         {
             case MovementState.Chasing:
-            Debug.Log("chasing!");
                 ChasePlayer();
                 break;
             case MovementState.Attacking:
+                StartCoroutine(PauseCoroutine());
                 break;
             default:
                 Debug.LogWarning("Unknown State");
@@ -67,4 +87,11 @@ public class EnemyParent : MonoBehaviour
             speed * Time.deltaTime
         );
     }
+
+    public IEnumerator PauseCoroutine()
+    {
+        yield return new WaitForSeconds(attackRecoveryDelay);
+    }
+
+    
 }

@@ -28,6 +28,9 @@ public class PlayerScript : MonoBehaviour
     public ContactFilter2D movementFilter;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     [SerializeField] public bool canMove;
+    [SerializeField] public int invincibleLayer;
+    [SerializeField] public int defaultLayer;
+    
      
     
     [SerializeField] private PlayerState currentState;
@@ -35,6 +38,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        defaultLayer = gameObject.layer;
+        invincibleLayer = LayerMask.NameToLayer("Invincible");
         currentState = PlayerState.standing;
         curHealth = maxHealth;
         isInvulnerable = false;
@@ -116,7 +121,6 @@ public class PlayerScript : MonoBehaviour
                 castCollisions,
                 moveSpeed * Time.fixedDeltaTime + collisionOffset
             );
-            Debug.Log(count);
         if(count == 0) 
         {
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
@@ -129,7 +133,7 @@ public class PlayerScript : MonoBehaviour
     }
     
     private IEnumerator Attack(){
-        Debug.Log("Attacking");
+        //Debug.Log("Attacking");
         fist.SetActive(true);
         yield return new WaitForSeconds(attackDelay);
         fist.SetActive(false);
@@ -137,9 +141,10 @@ public class PlayerScript : MonoBehaviour
     }
     private IEnumerator Iframes(){
         isInvulnerable = true;
+        gameObject.layer = invincibleLayer;
         yield return new WaitForSeconds(iFrameDuration);
+        gameObject.layer = defaultLayer;
         isInvulnerable = false;
-        
     }
     private void OnCollisionStay2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Enemy") && !isInvulnerable) {

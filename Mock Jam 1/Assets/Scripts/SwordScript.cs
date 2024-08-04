@@ -11,6 +11,8 @@ public class SwordScript : MonoBehaviour
     [SerializeField] private Transform circleOrigin;
     [SerializeField] private float radius;
     [SerializeField] private GameObject fist;
+    [SerializeField] private float knockbackForce = 1;
+    [SerializeField] public float knockbackDuration = 0.5f;
     private bool canAttack;
     void Start()
     {
@@ -39,7 +41,33 @@ public class SwordScript : MonoBehaviour
             if(collider.gameObject.CompareTag("Enemy")) {
                 Debug.Log("EnemyHit!");
                 collider.gameObject.GetComponent<EnemyParent>().Damage();
+
+                Rigidbody2D enemyRigidbody = collider.GetComponent<Rigidbody2D>();
+                Vector2 direction = (collider.transform.position - transform.position).normalized;
+                Vector2 knockbackForceVector = direction * knockbackForce;
+                enemyRigidbody.velocity = Vector2.zero;
+                enemyRigidbody.AddForce(knockbackForceVector, ForceMode2D.Impulse);
+
+                StartCoroutine
+                (
+                    ApplyKnockback
+                    (
+                        collider.gameObject, 
+                        collider.transform.position, 
+                        knockbackDuration
+                    )
+                );
             }
+        }
+    }
+
+    IEnumerator ApplyKnockback(GameObject target, Vector2 targetPosition, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Rigidbody2D enemyRigidbody = target.GetComponent<Rigidbody2D>();
+        if (enemyRigidbody != null)
+        {
+            enemyRigidbody.velocity = Vector2.zero; // Stop the enemy after knockback
         }
     }
 }
