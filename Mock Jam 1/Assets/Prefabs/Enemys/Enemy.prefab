@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   health: 0
-  isChasing: 0
+  isChasing: 1
   speed: 1
   player: {fileID: 0}
   rb: {fileID: 0}
