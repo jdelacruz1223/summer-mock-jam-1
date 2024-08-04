@@ -7,13 +7,16 @@ using UnityEngine.Playables;
 public class PlayerScript : MonoBehaviour
 {
     private enum PlayerState {
-        alive, dead
+        alive,
+        dead
     }
     public GameObject fist;
     [SerializeField] private int maxHealth = 4;
-    [SerializeField] private float moveSpeed = 5;
+    [SerializeField] public float moveSpeed = 5;
     [SerializeField] private float attackDelay = 0.5f;
+    [SerializeField] public float collisionOffset = 0.0f;
     private int curHealth;
+    private Rigidbody2D rb;
     
     private PlayerState playerstate;
 
@@ -46,9 +49,10 @@ public class PlayerScript : MonoBehaviour
             if(curHealth <= 0) {
                 playerstate = PlayerState.dead;
             }
-        }
-        
+        } 
     }
+
+    
     
     private IEnumerator Attack(){
         Debug.Log("Attacking");
