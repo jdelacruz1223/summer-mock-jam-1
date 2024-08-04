@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private int maxHealth = 4;
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float attackDelay = 0.5f;
+    [SerializeField] private float iFrameDuration = 1.5f;
+    private bool isInvulnerable;
     private int curHealth;
     
     private PlayerState playerstate;
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     {
         playerstate = PlayerState.alive;
         curHealth = maxHealth;
+        isInvulnerable = false;
     }
 
     // Update is called once per frame
@@ -56,11 +59,18 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         fist.SetActive(false);
     }
-    private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("Enemy")) {
+    private IEnumerator Iframes(){
+        isInvulnerable = true;
+        yield return new WaitForSeconds(iFrameDuration);
+        isInvulnerable = false;
+        
+    }
+    private void OnCollisionStay2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Enemy") && !isInvulnerable) {
             //Player will get hurt
             Debug.Log("ouch");
             curHealth--;
+            StartCoroutine(Iframes());
         }
     }
 }
