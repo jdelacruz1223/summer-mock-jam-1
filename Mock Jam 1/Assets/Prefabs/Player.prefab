@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 0.721, y: 1.7672, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5942505885161835386}
   m_Father: {fileID: 5798957615541035973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1230917017357878331
@@ -244,6 +245,37 @@ MonoBehaviour:
   maxHealth: 4
   moveSpeed: 5
   attackDelay: 0.5
+--- !u!1 &6195295641461663582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5942505885161835386}
+  m_Layer: 0
+  m_Name: CircleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5942505885161835386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195295641461663582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075841733327155276}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8155913887984046820
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982982878ef563f4b916a49e2c845628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleOrigin: {fileID: 0}
-  radius: 0
-  fist: {fileID: 0}
+  circleOrigin: {fileID: 5942505885161835386}
+  radius: 0.9
+  fist: {fileID: 37585339616185588}
