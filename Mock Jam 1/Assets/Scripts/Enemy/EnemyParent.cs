@@ -15,8 +15,11 @@ public class EnemyParent : MonoBehaviour
     [SerializeField] public bool isChasing;
     [SerializeField] public int speed;
     [SerializeField] public GameObject player;
+    public Rigidbody2D rb;
 
     void Start() {
+        rb = GetComponent<Rigidbody2D>();
+
         health = 2;
         currentState = MovementState.Chasing;
     }
@@ -31,7 +34,8 @@ public class EnemyParent : MonoBehaviour
             Destroy(gameObject);
         }
 
-        HandleState();
+        ChasePlayer();
+        //HandleState();
     }
     public void Damage() {
         health--;
@@ -42,6 +46,7 @@ public class EnemyParent : MonoBehaviour
         switch(currentState)
         {
             case MovementState.Chasing:
+            Debug.Log("chasing!");
                 ChasePlayer();
                 break;
             case MovementState.Attacking:
@@ -55,8 +60,6 @@ public class EnemyParent : MonoBehaviour
     private void ChasePlayer()
     {
         isChasing = true;
-        
-
         transform.position = Vector2.MoveTowards
         (
             this.transform.position,

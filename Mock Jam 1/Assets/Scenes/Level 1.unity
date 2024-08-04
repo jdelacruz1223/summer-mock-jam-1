@@ -4504,7 +4504,7 @@ GameObject:
   - component: {fileID: 1291593783}
   - component: {fileID: 1291593782}
   m_Layer: 0
-  m_Name: Grid (1)
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4621,7 +4621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52e251547506a54eb38f025be7c2e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   health: 0
+  isChasing: 0
+  speed: 0
+  player: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &1484826222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,11 +5005,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1811939718492407895, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.44
+      value: -13.45
       objectReference: {fileID: 0}
     - target: {fileID: 1811939718492407895, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07000005
+      value: 14.76
       objectReference: {fileID: 0}
     - target: {fileID: 1811939718492407895, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5036,6 +5041,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811939718492407895, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639436425858245098, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639436425858245098, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1815058439}
+    - target: {fileID: 2639436425858245098, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
+      propertyPath: isChasing
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7000631446762198650, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
@@ -6682,6 +6699,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1815058439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5650270691429419313, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+  m_PrefabInstance: {fileID: 233952276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1992339426
 GameObject:
   m_ObjectHideFlags: 3
