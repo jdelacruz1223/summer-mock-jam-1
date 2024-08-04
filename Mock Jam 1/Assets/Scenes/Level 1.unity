@@ -5051,6 +5051,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1815058439}
+    - target: {fileID: 6870174545554952740, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7000631446762198650, guid: a0c3e8541f5a5084f93f18637922942d, type: 3}
       propertyPath: m_Name
       value: Enemy
