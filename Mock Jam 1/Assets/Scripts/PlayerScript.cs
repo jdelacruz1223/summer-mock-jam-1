@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 
 public class PlayerScript : MonoBehaviour
 {
-    private enum PlayerState {
+    public enum PlayerState {
         alive,
         standing,
         attacking,
@@ -34,6 +34,8 @@ public class PlayerScript : MonoBehaviour
      
     
     [SerializeField] private PlayerState currentState;
+    private TimeHandler timeHandler;
+    private float timeNotMoving;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class PlayerScript : MonoBehaviour
         curHealth = maxHealth;
         isInvulnerable = false;
         canMove = true;
+        timeHandler = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeHandler>();
     }
 
     void Update()
@@ -60,10 +63,18 @@ public class PlayerScript : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.standing:
-            //
+            timeNotMoving += Time.deltaTime;
+            if (timeHandler.difficultyLevel > 1 && timeNotMoving >= 1f && !isInvulnerable) {
+                timeNotMoving = 0;
+                curHealth--;
+                StartCoroutine(Iframes());
+            } else if (timeHandler.difficultyLevel > 3 && !isInvulnerable) {
+                curHealth--;
+                StartCoroutine(Iframes());
+            }
             break;
             case PlayerState.moving:
-            //
+            timeNotMoving = 0;
             break;
             case PlayerState.attacking:
             StartCoroutine(Attack());
@@ -153,5 +164,12 @@ public class PlayerScript : MonoBehaviour
             curHealth--;
             StartCoroutine(Iframes());
         }
+    }
+    
+    public PlayerState getPlayerState(){
+        return currentState;
+    }
+    public float getTimeNotMoving() {
+        return timeNotMoving;
     }
 }

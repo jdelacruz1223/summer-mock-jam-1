@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 201517806}
   m_Layer: 0
   m_Name: TimeManager
-  m_TagString: Untagged
+  m_TagString: Time Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 920869535}
+  enemySpawner: {fileID: 0}
+  difficultyLevel: 1
 --- !u!1001 &233952276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,6 +368,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5208690908577739920, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
+      propertyPath: attackDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208690908577739920, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: collisionOffset
       value: 0.05
       objectReference: {fileID: 0}
@@ -429,7 +435,7 @@ GameObject:
   - component: {fileID: 235050441}
   m_Layer: 0
   m_Name: EnemySpawn Group
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +464,7 @@ MonoBehaviour:
   - {fileID: 1175539413}
   - {fileID: 1170432781}
   - {fileID: 979840937}
-  spawnDelay: 1
+  spawnDelay: 3
   tempSpawnLimit: 9
 --- !u!4 &235050442
 Transform:

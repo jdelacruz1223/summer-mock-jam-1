@@ -70,5 +70,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else return false;
     }
-
+    public void setSpawnDelay(int delay) {
+        spawnDelay = delay;
+    }
 }
