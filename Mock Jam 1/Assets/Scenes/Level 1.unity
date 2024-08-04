@@ -282,10 +282,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 233952277}
     - target: {fileID: 2990086025951735135, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
-      propertyPath: radius
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2990086025951735135, guid: 033f95d1e45248146a4001e36c82af93, type: 3}
       propertyPath: circleOrigin
       value: 
       objectReference: {fileID: 1292921523}
