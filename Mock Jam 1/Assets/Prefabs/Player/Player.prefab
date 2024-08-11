@@ -267,8 +267,8 @@ MonoBehaviour:
   fist: {fileID: 37585339616185588}
   maxHealth: 5
   moveSpeed: 5
-  attackDelay: 0.5
-  collisionOffset: 0
+  attackDelay: 0.3
+  collisionOffset: 0.05
   iFrameDuration: 1.5
   isInvulnerable: 0
   curHealth: 0
@@ -292,6 +292,10 @@ MonoBehaviour:
   canMove: 0
   invincibleLayer: 0
   defaultLayer: 0
+  isWalking: 0
+  isAttacking: 0
+  currentDirection: 
+  anim: {fileID: 0}
   currentState: 0
 --- !u!114 &1470381056164591925
 MonoBehaviour:

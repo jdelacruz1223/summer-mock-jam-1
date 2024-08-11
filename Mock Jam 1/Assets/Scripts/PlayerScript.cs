@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -31,15 +32,23 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public bool canMove;
     [SerializeField] public int invincibleLayer;
     [SerializeField] public int defaultLayer;
+    [SerializeField] public bool isWalking;
+    [SerializeField] public bool isAttacking;
+    [SerializeField] public string currentDirection;
     
-     
+    
+     public PlayerAnimation anim;
     
     [SerializeField] private PlayerState currentState;
     private TimeHandler timeHandler;
     private float timeNotMoving;
+    private string direction;
+
+    private bool isMoving;
 
     void Start()
     {
+        anim = GetComponent<PlayerAnimation>();
         rb = GetComponent<Rigidbody2D>();
         defaultLayer = gameObject.layer;
         invincibleLayer = LayerMask.NameToLayer("Invincible");
@@ -47,7 +56,10 @@ public class PlayerScript : MonoBehaviour
         curHealth = maxHealth;
         isInvulnerable = false;
         canMove = true;
+        isWalking = false;
         timeHandler = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeHandler>();
+        direction = "right";
+        isMoving = true;
     }
 
     void Update()
@@ -56,6 +68,8 @@ public class PlayerScript : MonoBehaviour
             currentState = PlayerState.dead;
         } 
         Move();
+        direction = getDirection();
+        if (moveInput == Vector2.zero) isMoving = false;
         HandleState();
     }
 
@@ -73,17 +87,21 @@ public class PlayerScript : MonoBehaviour
                 curHealth--;
                 StartCoroutine(Iframes());
             }
+            isMoving = false;
             break;
             case PlayerState.moving:
+            isMoving = true;
             timeNotMoving = 0;
             break;
             case PlayerState.attacking:
             StartCoroutine(Attack());
+            isMoving = false;
             break;
             case PlayerState.dead:
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Application.Quit();
             break;
         }
+        anim.animationUpdate(direction, isMoving);
             
     }
 
@@ -171,5 +189,29 @@ public class PlayerScript : MonoBehaviour
     }
     public float getTimeNotMoving() {
         return timeNotMoving;
+    }
+
+    public string getDirection()
+    {
+        if (moveInput.y > 0f) //up
+        {
+            return currentDirection = "up";
+        }
+        else if (moveInput.y < 0f) //down
+        {
+            return currentDirection = "down";
+        }
+        else if (moveInput.x < 0f) //left
+        {
+            return currentDirection = "left";
+        }
+        else if (moveInput.x > 0f) //right
+        {
+            return currentDirection = "right";
+        }
+        else
+        {
+            return currentDirection;
+        }
     }
 }
